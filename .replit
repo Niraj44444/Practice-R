@@ -1,10 +1,19 @@
+run = "npm run dev"
 modules = ["nodejs-20"]
-[agent]
-expertMode = true
+hidden = [".config", "package-lock.json"]
+entrypoint = "index.html"
 
 [nix]
-channel = "stable-25_05"
+channel = "stable-24_05"
+
+[unitTest]
+language = "nodejs"
+
+[deployment]
+deploymentTarget = "static"
+build = ["npm", "run", "build"]
+publicDir = "dist"
 
 [[ports]]
-localPort = 5174
+localPort = 5173
 externalPort = 80
